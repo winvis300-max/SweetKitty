@@ -49,6 +49,7 @@ Defaults:
 File manager: Nemo
 Terminal: Terminator
 Web Browser: Chromium
+
 4. *Copy the themes and wallpaper:*
 
 tar xf Sweet-mars.tar.xz
