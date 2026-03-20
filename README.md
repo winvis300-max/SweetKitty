@@ -1,139 +1,202 @@
+# 🐱 SweetKitty – Openbox Setup
+
 <p align="center">
-<img src="logo.png" alt="logo" width="300" height="1000"/>
+<img src="logo.png" alt="SweetKitty Logo" width="300"/>
 </p>
 
-<br>
+<p align="center">
+A minimal, clean and aesthetic Openbox desktop setup.
+</p>
 
-<div align="center">
-<h4> My Openbox setup </h4>
+---
 
-<div align="center">
+## ✨ Features
 
-<br>
+* Lightweight Openbox environment
+* XFCE4 Panel integration
+* Plank dock (macOS-like style)
+* Sweet Mars GTK theme
+* BeautySolar icon pack
+* Clean and customizable layout
 
-<center>
+---
 
-![banner](banner.png)
+## 📦 Requirements
 
-</center>
+Install required packages depending on your distribution:
 
-<br>
+---
 
+### 🟢 Debian / Ubuntu / Linux Mint
 
-
-## How to install my Openbox setup
-
-1. *Clone this repository and go to the inside:*
-
-git clone https://github.com/winvis300-max/SweetKitty.git 
-
-cd SweetKitty
-
-2. *Install the Openbox and depencedices:*
-
-Debian/Ubuntu/Mint
-
+```bash
 sudo apt install plank xfce4-panel nitrogen xcompmgr openbox xfce4-whiskermenu-plugin lxappearance lxsession-logout
-    
-RHEL/Fedora/Nobara
+```
 
-sudo dnf install plank xfce4-panel nitrogen xcompmgr openboxxfce4-whiskermenu-plugin lxappearance lxsession-logout
-    
+---
 
-Arch/Manjaro/CachyOS
+### 🔵 Fedora / RHEL / Nobara
 
+```bash
+sudo dnf install plank xfce4-panel nitrogen xcompmgr openbox xfce4-whiskermenu-plugin lxappearance lxsession-logout
+```
+
+---
+
+### ⚫ Arch / EndeavourOS / Manjaro / CachyOS
+
+> ⚠️ Note: On some Arch-based systems, nitrogen may only be available in the AUR.
+
+```bash
+# If you use EndeavourOS, yay is usually preinstalled
+
+# If yay is NOT installed:
+sudo pacman -S --needed base-devel git
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+
+# Install packages
 yay -S plank xfce4-panel nitrogen xcompmgr openbox xfce4-whiskermenu-plugin lxappearance lxsession-logout
+```
 
-Defaults:
+---
 
-File manager: Nemo
-Terminal: Terminator
-Web Browser: Chromium
+### 🟣 Gentoo/Calculate/Argent
 
-4. *Copy the themes and wallpaper:*
+```bash
+sudo emerge --ask x11-wm/openbox xfce-base/xfce4-panel x11-misc/nitrogen x11-misc/xcompmgr x11-misc/plank x11-themes/lxappearance xfce-extra/xfce4-whiskermenu-plugin
+```
 
+> 💡 Note: Package names may vary slightly depending on overlays.
+
+---
+
+## 🚀 Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/winvis300-max/SweetKitty.git
+cd SweetKitty
+```
+
+---
+
+### 2. Install themes and icons
+
+```bash
 tar xf Sweet-mars.tar.xz
-tar xf BeautySolar.tar-20241114161046.gz
+tar xf BeautySolar.tar-*.gz
 unzip elementary-Dark.zip
+
 sudo cp -r BeautySolar/ /usr/share/icons/
 sudo cp -r Sweet-mars/ /usr/share/themes/
 sudo cp -r elementary-Dark/ /usr/share/plank/themes/
-sudo cp wp9511342-4248049388.jpg /usr/share/backgrounds/
+sudo cp wp*.jpg /usr/share/backgrounds/
+```
 
-5. *Set the themes:*
+---
 
-Type lxappearance to open the LXappearance
-Selcet Sweet-mars for theme
-Selcet the BeautySolar for the icons
-After doing these click Apply and close the windows.
-Right click to the plank with holp up Ctrl.
-Click Prfernces.
-Selcet the theme elementary-Dark
-And enable the Icon Zoom.
-<br>
+### 3. Apply GTK theme
 
-6. *Set the autostart.sh:*
-After all log out and selcet Openbox for the session.
-Right click and selcet the Terminal emulator.
-Type this commands:
+```bash
+lxappearance
+```
 
-sudo mkdir .config/openbox/
-sudo nano .config/openbox/autostart.sh
+Set:
 
-After open the nano type this:
+* Theme → **Sweet-mars**
+* Icons → **BeautySolar**
 
+---
+
+### 4. Configure Plank
+
+* Hold **Ctrl + Right Click** on dock
+* Open **Preferences**
+* Theme → `elementary-Dark`
+* Enable **Icon Zoom**
+
+---
+
+### 5. Setup autostart
+
+```bash
+mkdir -p ~/.config/openbox
+nano ~/.config/openbox/autostart.sh
+```
+
+Add:
+
+```bash
 plank &
 xfce4-panel &
 nitrogen --restore &
 xcompmgr &
+```
 
-Save end exit
-7. *Set the wallpaper:*
+Make it executable:
 
-Type nitrogen to terminal
-Click Preferences
-Click Add
-Add the /usr/share/backgrounds/
-Click Selcet
-Click Ok
-Click Automatic
-Click Zoomed Fill
-Click Apply
-Logout and login
-Right click to panel
+```bash
+chmod +x ~/.config/openbox/autostart.sh
+```
 
-8. *Set the panel:*
+---
 
-Right click to panel
-Click to Panel
-Click to Panel Preferences
-Remove panel 2
-Go to the Items
-Remove evrything
-Click Add
-Add the Whisker Menu
-Add a seprator
-Add a clock
-Open the seprator preferences
-Enable the Expert
-Click Close
-Open the clock preferences
-Click Digital
-Selcet the LCD
-Click Close
-Open the Whisker Menu Preferences
-Click Appearance
-Change Icon to applications-all
-Click Ok
-Click Commands
-Disable evrything
-Enable Settings Manager
-Change the commandd to lxsession-logout
-Close the Window
+### 6. Set wallpaper
 
-9. *Set the Openbox theme:*
+```bash
+nitrogen
+```
 
-Right click to desktop
-Click to ObConf
-Selcet the Nightmare
-And enjoy your new Desktop
+* Add: `/usr/share/backgrounds/`
+* Mode → Zoomed Fill
+* Apply
+
+---
+
+### 7. Configure panel
+
+* Right click panel → Panel Preferences
+* Remove extra panels
+* Add:
+
+  * Whisker Menu
+  * Separator
+  * Clock
+
+Settings:
+
+* Clock → Digital (LCD)
+* Whisker Menu:
+
+  * Icon → `applications-all`
+  * Enable → Settings Manager
+  * Logout command → `lxsession-logout`
+
+---
+
+### 8. Set Openbox theme
+
+```bash
+obconf
+```
+
+Select:
+
+* Theme → **Nightmare**
+
+---
+
+## 🖥️ Defaults
+
+* File Manager → Nemo
+* Terminal → Terminator
+* Browser → Chromium
+
+---
+
+## 🎉 Done!
+
+Log out, select **Openbox session**, and enjoy your new desktop 🎉
