@@ -173,7 +173,7 @@ Settings:
 
   * Icon → `applications-all`
   * Enable → Settings Manager
-  * Logout command → `lxsession-logout`
+  * Settings Manager command → `lxsession-logout`
 
 ---
 
