@@ -58,7 +58,7 @@ unzip elementary-Dark.zip
 sudo cp -r BeautySolar/ /usr/share/icons/
 sudo cp -r Sweet-mars/ /usr/share/themes/
 sudo cp -r elementary-Dark/ /usr/share/plank/themes/
-sudo cp wp9511342-4248049388.jpg
+sudo cp wp9511342-4248049388.jpg /usr/share/backgrounds/
 
 5. *Set the themes:*
 
