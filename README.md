@@ -1,13 +1,10 @@
 <p align="center">
-<img src="logo.png" alt="logo" width="80" height="80"/>
+<img src="logo.png" alt="logo" width="300" height="1000"/>
 </p>
 
 <br>
 
 <div align="center">
-
-Sweet Kitty
-===========================
 <h4> My Openbox setup </h4>
 
 <div align="center">
