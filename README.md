@@ -193,7 +193,7 @@ Select:
 
 * File Manager → Nemo
 * Terminal → Terminator
-* Browser → Chromium
+* Browser → Waterfox
 
 ---
 
